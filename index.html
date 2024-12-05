@@ -307,10 +307,7 @@ function displayWordCount(sectionId) {
         }
 
         function displayTotalWordCount() {
-            const IntroductionCount = displayWordCount(" Air quality has become a serious environmental and public health concern, especially in metropolitan areas where dense traffic of vehicles contributes much to pollution. 
-    Among the biggest contributors are internal combustion engines, which power millions of vehicles worldwide but emit a great deal of harmful pollutants
-     p include NOx, PM, CO, and HC, which degrade air quality, have harmful effects on respiratory health, and promote climate change through complex interactions i the atmosphere
-    o review outlines the challenges that ICE emissions pose and proposes pathways to cleaner air wit the aid of technological innovation and regulatory measures");
+            const IntroductionCount = displayWordCount("Introduction");
             const AnalysisCount = displayWordCount("Mechanisms leading to pollutant formation");
             const totalWordCount = IntroductionCount + AnalysisCount;
             document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
