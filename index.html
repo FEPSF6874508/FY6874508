@@ -267,15 +267,15 @@
 </ul>
 ```
 
-     <div id="last-updated">Loading last update time...</div>
+    <div id="last-updated">Loading last update time...</div>
     <button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
         Verify Last Modified Time
     </button>
     <p id="totalWordCount"></p>
     <script>
         async function getLastUpdatedTime() {
-            const username = 'FEPSF6874508';
-            const repo = 'FY6874508';
+            const username = 'nr0025';
+            const repo = 'FY0025';
             const url = `https://api.github.com/repos/${username}/${repo}/commits`;
 
             try {
@@ -301,7 +301,7 @@
             alert("Last modified time has been successfully verified from GitHub API.");
         }
 
-       <!-- Placeholder for total word count -->
+        <!-- Placeholder for total word count -->
 <p id="totalWordCount"></p>
 <hr>
 <script>
@@ -343,4 +343,5 @@
   // Run the function on page load
   window.onload = calculateTotalWordCount;
 </script>
+
 
