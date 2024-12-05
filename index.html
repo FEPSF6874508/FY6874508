@@ -301,23 +301,46 @@
             alert("Last modified time has been successfully verified from GitHub API.");
         }
 
-        function displayWordCount(sectionId) {
-            const text = document.getElementById(sectionId)?.textContent || '';
-            return text.trim().split(/\s+/).filter(Boolean).length;
-        }
+       <!-- Placeholder for total word count -->
+<p id="totalWordCount"></p>
+<hr>
+<script>
+  // Function to calculate and display word count for a specified section
+  function displayWordCount(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (!element) {
+      console.warn(`Section with ID "${sectionId}" not found.`);
+      return 0;
+    }
+    const text = element.textContent.trim();
+    const wordArray = text.split(/\s+/); // Split text into words based on spaces
+    return wordArray.length;
+  }
 
-        function displayTotalWordCount() {
-            const IntroductionCount = displayWordCount(id="Introduction");
-            const AnalysisCount = displayWordCount(id="Mechanisms leading to pollutant formation");
-            const totalWordCount = IntroductionCount + AnalysisCount;
-            document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
-        }
+  // Function to calculate total word count for selected sections (excluding Abstract)
+  function calculateTotalWordCount() {
+    const sectionIds = [
+      "Introduction", 
+      "Mechanisms leading to pollutant formation",
+      "Impact on Air Quality and Health",
+      "Mitigation Strategies",
+      "Policy and Regulatory Frameworks",
+      "Obstacles in Implementing Low-Emission Technologies",
+      "Conclusion"
+    ];
 
-        window.onload = () => {
-            getLastUpdatedTime();
-            displayTotalWordCount();
-        };
-    </script>
-</body>
-</html>
+    // Calculate total word count
+    let totalWordCount = 0;
+    sectionIds.forEach(sectionId => {
+      totalWordCount += displayWordCount(sectionId);
+    });
+
+    // Display the total word count
+    const wordCountDisplay = document.getElementById("totalWordCount");
+    wordCountDisplay.innerText = `Total word count (excluding Abstract): ${totalWordCount}`;
+  }
+
+  // Run the function on page load
+  window.onload = calculateTotalWordCount;
+</script>
 
