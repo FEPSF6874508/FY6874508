@@ -301,25 +301,98 @@
             alert("Last modified time has been successfully verified from GitHub API.");
         }
 
-        function displayWordCount(sectionId) {
-            const text = document.getElementById(sectionId)?.textContent || '';
-            return text.trim().split(/\s+/).filter(Boolean).length;
-        }
+      <p id="totalWordCount"></p>
+<hr>
 
-        function displayTotalWordCount() {
-            const IntroductionCount = displayWordCount("Introduction");
-            const AnalysisCount = displayWordCount("Mechanisms leading to pollutant formation");
-            const totalWordCount = IntroductionCount + AnalysisCount;
-            document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
-        }
+<script>
+  // Function to calculate and display word count for a specified section
+  function displayWordCount(sectionId) {
+    // Get the text content from the specified section
+    const text = document.getElementById(sectionId)?.textContent || "";
+    // Split text into words based on spaces and filter out any empty strings
+    const wordArray = text.trim().split(/\s+/).filter(word => word.length > 0);
+    // Count the words
+    return wordArray.length;
+  }
 
-        window.onload = () => {
-            getLastUpdatedTime();
-            displayTotalWordCount();
-        };
-    </script>
-</body>
-</html>
+  // Function to calculate and display total word count from selected sections
+  function displayTotalWordCount() {
+    // Calculate word count for the Introduction section
+    const IntroductionCount = displayWordCount("Introduction_InText");
+    // Calculate word count for the Analysis section
+    const AnalysisCount = displayWordCount("Analysis_InText");
+    // Sum the word counts of all sections
+    const totalWordCount = IntroductionCount + AnalysisCount;
+
+    // Display word counts individually
+    console.log(`Introduction Word Count: ${IntroductionCount}`);
+    console.log(`Analysis Word Count: ${AnalysisCount}`);
+
+    // Display the total word count
+    document.getElementById("totalWordCount").innerText = 
+      `Introduction: ${IntroductionCount} words, Analysis: ${AnalysisCount} words, Total: ${totalWordCount} words.`;
+  }
+
+  // Run the function to display total count when the page loads
+  window.onload = displayTotalWordCount;
+</script>
+
+<!-- Sample content for testing -->
+<div id="Introduction_InText">
+ Air quality has become a serious environmental and public health concern, especially in metropolitan areas where dense traffic of vehicles contributes much to pollution. 
+    Among the biggest contributors are internal combustion engines, which power millions of vehicles worldwide but emit a great deal of harmful pollutants. 
+    These include NOx, PM, CO, and HC, which degrade air quality, have harmful effects on respiratory health, and promote climate change through complex interactions in the atmosphere. 
+    This review outlines the challenges that ICE emissions pose and proposes pathways to cleaner air with the aid of technological innovation and regulatory measures. .
+</div>
+<div id="Analysis_InText">
+  Internal combustion engines operate under high temperature and pressure to burn fuel, hence providing a favourable environment for formation of pollutants. The primary sources include:
+    Incomplete combustion: leading to the emission of CO and hydrocarbons from unburned or partially burned fuel.
+    High-temperature oxidation: Most NOx is formed by reactions of oxygen and nitrogen present in the air under extreme conditions  <a href="#ref-zhang2021">(Zhang et al., 2021)</a>.
+    Soot and particulate matter: Forms in fuel-rich zones where combustion is inefficient, producing fine particulate matter that is loaded with harmful chemicals <a href="#ref-who2020">(WHO, 2020)</a>.
+    The variety of pollutants that are released to the atmosphere by ICEs have far-reaching effects:
+    Nitrogen oxides (NOx): A contribution to smog and acid rain and respiratory diseases  <a href="#ref-epa2019">(EPA, 2019)</a>.
+    Particulate matter (PM): ultra-fine particles that penetrate deep into the lungs, thereby posing serious health problems and decreasing visibility (World Health Organization, 2021).
+    Carbon monoxide: a poisonous substance together with the ability to stink and affect transportation mechanisms of blood in the body  <a href="#ref-smith2022">(Smith et al., 2022)</a>.
+    Hydrocarbons: They are known to enhance the formation of ground-level ozone and other forms of air pollution.
+     Urban areas are mostly affected by ICE emissions due to congested roads and vehicle concentration. 
+     Pollutants like NOx and HC combine with sunlight to form ground-level ozone, a critical part of smog. 
+     All this leads to increased incidences of respiratory diseases, asthma, and chronic obstructive pulmonary disease (COPD) <a href="#ref-chen2020">(Chen, 2020)</a>.
+     Aside from urban health concerns, ICE emissions degrade ecosystems and climate:
+     Acid deposition: NOx, through acid deposition, alters pH, leading to damage to soils and aquatic systems  <a href="#ref-smith2022">(Smith et al., 2022)</a>.
+     Particulate matter and climate: PM directly affects climate by warming or cooling depending on composition and indirectly affects by influencing cloud properties <a href="#ref-who2020">(WHO, 2020)</a>.
+     In certain cases, fuel developments can lead to great emission reductions:
+     Low-sulfur fuels: Reduced sulfur in fuels gives rise to lower SOx and particulate matter emissions formation.
+     Alternative fuels: Hydrogen, biofuels, and synthetic fuel allow combustion with lower emissions <a href="#ref-johnson2021">(Johnson & Lee, 2021)</a>.
+     Novel technologies serve to treat exhaust gases in ways to reduce pollution. 
+     Catalytic converters: Convert NOx, CO, and HC in exhaust gas to relatively inert compounds such as nitrogen, carbon dioxide, and water  <a href="#ref-epa2019">(EPA, 2019)</a>.
+     Diesel particulate filter: These systems capture fine PM very well and are especially important for diesel engines.
+     Selective catalytic reduction: Technology that uses solutions based on urea or ammonia to considerably reduce NOx emissions  <a href="#ref-zhang2021">(Zhang et al., 2021)</a>.
+     The use of both fully electric and hybrid-electric vehicles contributes to a quality clean transport paradigm shift. 
+     They reduce, if not completely eliminate, tailpipe emissions and thus eco-friendliness as alternatives to ICEs. 
+     There also exists an added environmental boost through further capitalization on renewable energy sources in power generation <a href="#ref-chen2020">(Chen, 2020)</a>.
+     Currently, The Euro 6 and Tier 3 legislation within Europe and the US obliges manufacturers to innovate in reducing ICE emissions. 
+     Broadly construed, these regulations enable a level playing field across different countries for emissions reduction while backing promising technologies <a href="#ref-johnson2021">(Johnson & Lee, 2021)</a>.
+     The incentives are clear, and it is nonsequential to state that the role of governments in this respect cannot be overemphasized. Subsidies for electric vehicles, investment in renewable energy infrastructures, 
+     and resourcing research into low-emission technologies that form a pathway to freedom from previously polluting ICEs <a href="#ref-smith2022">(Smith et al., 2022)</a>.
+     Various research and technological innovations create a platform for a more efficient fight against ICE emissions.
+     Combustion Optimization: New technologies such as HCCI allow almost complete combustion, reducing polluting emissions  <a href="#ref-zhang2021">(Zhang et al., 2021)</a>.
+     Carbon Capture: Post-combustion systems for capturing and storing CO2 are useful in lessening ICE climate impact <a href="#ref-johnson2021">(Johnson & Lee, 2021)</a>.
+     Artificial Intelligence in Engine Control: AI systems can optimize fuel-air mixtures to enhance combustion to minimize emissions <a href="#ref-chen2020">(Chen, 2020)</a>.
+     All-inclusive solutions require a multidisciplinary intervention to bring together a full integration of engineering to environmental science in relation to emissions.
+     Considerations existential: Challenges for Implementation. Innovative Opportunities.
+    Barriers to the transition toward less-emitting technologies include:
+    Limitations in infrastructure: These hinder adoption since inadequate charging networks exist for electric vehicles <a href="#ref-smith2022">(Smith et al., 2022)</a>.
+    Cost Concerns: Their higher upfront costs for alternative fuels and advanced technologies stand in the way of widespread implementation.
+    Industry Resistance: Industries tied to traditional ICE systems often resist change due to the economic and logistic burdens involved <a href="#ref-johnson2021">(Johnson & Lee, 2021)</a>.
+    The global agenda for achieving net-zero emissions offers a huge opportunity for innovation. 
+    Research institutions like Duquesne University stress a greenhouse gas inventory reference standard and renewable energy adoption as being crucial to cleaner energy systems,
+    and a sustainable future <a href="#ref-duquesne2023">(Duquesne University, 2023)</a>.
+    while the internal combustion engine is beneficial to modern transport and spare parts, 
+    its emissions pose significant health and environmental problems. Some plausible means of alleviation would include cleaner fuels, 
+    advanced exhaust treatment technologies, and conversion to electric vehicles. Other success factors include comprehensive policies, international coordination, and continuing technological advances. 
+    There is a detailed project to develop clean energy strategies, thereby providing a better atmosphere along with good air.
+    
+</div>
 
 
 
